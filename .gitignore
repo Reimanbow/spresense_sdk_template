@@ -1,0 +1,6 @@
+.env
+**/.built
+**/.depend
+**/.depend.tmp
+**/*.o
+**/*.a

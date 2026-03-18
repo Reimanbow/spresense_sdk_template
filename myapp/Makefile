@@ -1,0 +1,10 @@
+include $(APPDIR)/Make.defs
+
+PROGNAME  = $(CONFIG_MYAPP_PROGNAME)
+PRIORITY  = $(CONFIG_MYAPP_PRIORITY)
+STACKSIZE = $(CONFIG_MYAPP_STACKSIZE)
+MODULE    = $(CONFIG_MYAPP)
+
+MAINSRC = myapp_main.c
+
+include $(APPDIR)/Application.mk

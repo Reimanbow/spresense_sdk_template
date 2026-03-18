@@ -1,0 +1,75 @@
+myapp_main.c.work.myapp.o: myapp_main.c /sdk/nuttx/include/stdio.h \
+ /sdk/nuttx/include/nuttx/config.h /sdk/nuttx/include/sys/types.h \
+ /sdk/nuttx/include/nuttx/compiler.h /sdk/nuttx/include/stdint.h \
+ /sdk/nuttx/include/arch/types.h /sdk/nuttx/include/arch/inttypes.h \
+ /sdk/nuttx/include/limits.h /sdk/nuttx/include/arch/limits.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
+ /sdk/nuttx/include/time.h /sdk/nuttx/include/nuttx/fs/fs.h \
+ /sdk/nuttx/include/stdbool.h /sdk/nuttx/include/dirent.h \
+ /sdk/nuttx/include/nuttx/mutex.h /sdk/nuttx/include/assert.h \
+ /sdk/nuttx/include/nuttx/semaphore.h /sdk/nuttx/include/errno.h \
+ /sdk/nuttx/include/semaphore.h /sdk/nuttx/include/nuttx/queue.h \
+ /sdk/nuttx/include/nuttx/clock.h /sdk/nuttx/include/nuttx/mm/map.h \
+ /sdk/nuttx/include/nuttx/mm/gran.h /sdk/nuttx/include/nuttx/lib/lib.h \
+ /sdk/nuttx/include/nuttx/kmalloc.h /sdk/nuttx/include/stdlib.h \
+ /sdk/nuttx/include/nuttx/mm/mm.h /sdk/nuttx/include/nuttx/addrenv.h \
+ /sdk/nuttx/include/nuttx/wqueue.h /sdk/nuttx/include/nuttx/wdog.h \
+ /sdk/nuttx/include/arch/arch.h /sdk/nuttx/include/nuttx/pgalloc.h \
+ /sdk/nuttx/include/nuttx/userspace.h /sdk/nuttx/include/signal.h \
+ /sdk/nuttx/include/pthread.h /sdk/nuttx/include/unistd.h \
+ /sdk/nuttx/include/nuttx/arch.h /sdk/nuttx/include/nuttx/cache.h \
+ /sdk/nuttx/include/nuttx/sched.h /sdk/nuttx/include/sched.h \
+ /sdk/nuttx/include/strings.h /sdk/nuttx/include/string.h \
+ /sdk/nuttx/include/stddef.h /sdk/nuttx/include/alloca.h \
+ /sdk/nuttx/include/nuttx/irq.h /sdk/nuttx/include/arch/irq.h \
+ /sdk/nuttx/include/arch/chip/irq.h /sdk/nuttx/include/arch/armv7-m/irq.h \
+ /sdk/nuttx/include/arch/armv7-m/nvicpri.h \
+ /sdk/nuttx/include/arch/chip/chip.h /sdk/nuttx/include/nuttx/net/net.h \
+ /sdk/nuttx/include/sys/socket.h /sdk/nuttx/include/sys/uio.h \
+ /sdk/nuttx/include/malloc.h /sdk/nuttx/include/sys/ioctl.h \
+ /sdk/nuttx/include/nuttx/fs/ioctl.h \
+ /sdk/nuttx/include/nuttx/serial/tioctl.h \
+ /sdk/nuttx/include/nuttx/net/ioctl.h /sdk/nuttx/include/fcntl.h \
+ /sdk/nuttx/include/nuttx/timers/pwm.h /sdk/nuttx/include/fixedmath.h \
+ /sdk/nuttx/include/arch/board/board.h /sdk/nuttx/include/sys/boardctl.h \
+ /sdk/nuttx/include/arch/chip/pin.h \
+ /sdk/nuttx/include/arch/board/board_lcdpins.h \
+ /sdk/nuttx/include/arch/board/cxd56_clock.h \
+ /sdk/nuttx/include/arch/board/cxd56_power.h \
+ /sdk/nuttx/include/arch/board/cxd56_flash.h \
+ /sdk/nuttx/include/arch/board/cxd56_gauge.h \
+ /sdk/nuttx/include/arch/board/cxd56_charger.h \
+ /sdk/nuttx/include/arch/board/cxd56_gs2200m.h \
+ /sdk/nuttx/include/arch/board/cxd56_nrc7292.h \
+ /sdk/nuttx/include/arch/board/cxd56_wiznet.h \
+ /sdk/nuttx/include/arch/board/cxd56_i2cdev.h \
+ /sdk/nuttx/include/arch/board/cxd56_spidev.h \
+ /sdk/nuttx/include/arch/board/cxd56_sdcard.h \
+ /sdk/nuttx/include/arch/board/cxd56_automount.h \
+ /sdk/nuttx/include/arch/board/cxd56_wdt.h \
+ /sdk/nuttx/include/arch/board/cxd56_gpioif.h \
+ /sdk/nuttx/include/arch/board/cxd56_audio.h \
+ /sdk/nuttx/include/arch/board/cxd56_alt1250.h \
+ /sdk/nuttx/include/arch/board/cxd56_ak09912.h \
+ /sdk/nuttx/include/nuttx/i2c/i2c_master.h \
+ /sdk/nuttx/include/arch/board/cxd56_apds9930.h \
+ /sdk/nuttx/include/arch/board/cxd56_apds9960.h \
+ /sdk/nuttx/include/arch/board/cxd56_bcm20706.h \
+ /sdk/nuttx/include/arch/board/cxd56_bh1721fvc.h \
+ /sdk/nuttx/include/arch/board/cxd56_bh1745nuc.h \
+ /sdk/nuttx/include/arch/board/cxd56_bm1383glv.h \
+ /sdk/nuttx/include/arch/board/cxd56_bm1422gmv.h \
+ /sdk/nuttx/include/arch/board/cxd56_bmi160.h \
+ /sdk/nuttx/include/arch/board/cxd56_bmi270.h \
+ /sdk/nuttx/include/arch/board/cxd56_bmp280.h \
+ /sdk/nuttx/include/arch/board/cxd56_emmcdev.h \
+ /sdk/nuttx/include/arch/board/cxd56_spisd.h \
+ /sdk/nuttx/include/arch/board/cxd56_kx022.h \
+ /sdk/nuttx/include/arch/board/cxd56_lt1pa01.h \
+ /sdk/nuttx/include/arch/board/cxd56_rpr0521rs.h \
+ /sdk/nuttx/include/arch/board/cxd56_scd41.h \
+ /sdk/nuttx/include/arch/board/cxd56_sensors.h \
+ /sdk/nuttx/include/arch/board/cxd56_gnss_addon.h \
+ /sdk/nuttx/include/arch/board/cxd56_cxd5602pwbimu.h
+# No files specified for dependency generation
+# No files specified for dependency generation

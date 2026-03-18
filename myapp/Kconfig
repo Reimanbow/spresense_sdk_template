@@ -1,0 +1,19 @@
+config MYAPP
+	tristate "My App"
+	default y
+
+if MYAPP
+
+config MYAPP_PROGNAME
+	string "Program name"
+	default "myapp"
+
+config MYAPP_PRIORITY
+	int "My App task priority"
+	default 100
+
+config MYAPP_STACKSIZE
+	int "My App stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+endif
