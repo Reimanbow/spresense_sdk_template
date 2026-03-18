@@ -1,4 +1,5 @@
 image := "spresense-build"
+docker_user := `id -u` + ":" + `id -g`
 set dotenv-load := true
 
 build-image:
@@ -13,6 +14,7 @@ config:
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
+        --user {{docker_user}} \
         {{image}} \
         bash -c 'cd /sdk/sdk && {{link_apps}} && python3 tools/config.py examples/hello'
 
@@ -20,6 +22,7 @@ menuconfig: config
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
+        --user {{docker_user}} \
         {{image}} \
         bash -c 'cd /sdk/sdk && python3 tools/config.py -m'
 
@@ -27,6 +30,7 @@ build:
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
+        --user {{docker_user}} \
         {{image}} \
         bash -c 'cd /sdk/sdk && {{link_apps}} && make'
 
