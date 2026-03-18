@@ -7,12 +7,14 @@ build-image:
 shell:
     docker run --rm -it -v $(pwd):/work {{image}}
 
+link_apps := "for d in /work/*/; do [ -f \"${d}Make.defs\" ] && ln -sfn \"$d\" \"apps/$(basename $d)\"; done"
+
 config:
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
         {{image}} \
-        bash -c "cd /sdk/sdk && ln -sfn /work/myapp apps/myapp && python3 tools/config.py examples/hello"
+        bash -c "cd /sdk/sdk && {{link_apps}} && python3 tools/config.py examples/hello"
 
 menuconfig: config
     docker run --rm -it \
@@ -27,7 +29,7 @@ build:
         -v $(pwd):/work \
         {{image}} bash -c "\
             cd /sdk/sdk && \
-            ln -sfn /work/myapp apps/myapp && \
+            {{link_apps}} && \
             make"
 
 flash port="/dev/ttyUSB0":
