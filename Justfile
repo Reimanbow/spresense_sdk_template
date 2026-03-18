@@ -7,30 +7,28 @@ build-image:
 shell:
     docker run --rm -it -v $(pwd):/work {{image}}
 
-link_apps := "for d in /work/*/; do [ -f \"${d}Make.defs\" ] && ln -sfn \"$d\" \"apps/$(basename $d)\"; done"
+link_apps := "for d in /work/*/; do [ -f ${d}Make.defs ] && ln -sfn $d apps/$(basename $d); done"
 
 config:
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
         {{image}} \
-        bash -c "cd /sdk/sdk && {{link_apps}} && python3 tools/config.py examples/hello"
+        bash -c 'cd /sdk/sdk && {{link_apps}} && python3 tools/config.py examples/hello'
 
 menuconfig: config
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
         {{image}} \
-        bash -c "cd /sdk/sdk && python3 tools/config.py -m"
+        bash -c 'cd /sdk/sdk && python3 tools/config.py -m'
 
 build:
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
         -v $(pwd):/work \
-        {{image}} bash -c "\
-            cd /sdk/sdk && \
-            {{link_apps}} && \
-            make"
+        {{image}} \
+        bash -c 'cd /sdk/sdk && {{link_apps}} && make'
 
 flash port="/dev/ttyUSB0":
     cd {{env_var("SPRESENSE_SDK")}}/sdk && \
@@ -42,5 +40,7 @@ monitor port="/dev/ttyUSB0":
 clean:
     docker run --rm -it \
         -v {{env_var("SPRESENSE_SDK")}}:/sdk \
+        -v $(pwd):/work \
         {{image}} \
-        bash -c "cd /sdk/sdk && make distclean"
+        bash -c 'cd /sdk/sdk && make distclean'
+    find . -name '.built' -o -name '.depend' -o -name 'Make.dep' -o -name '*.o' | xargs rm -f

@@ -4,3 +4,4 @@
 **/.depend.tmp
 **/*.o
 **/*.a
+**/Make.dep

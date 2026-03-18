@@ -139,4 +139,16 @@ MAINSRC = myapp_main.c
 include $(APPDIR)/Application.mk
 ```
 
-追加後は `Justfile` の `config` と `build` レシピ内の `ln -sfn` にアプリを追加してください。
+## アプリ名の変更
+
+`myapp` を別の名前（例: `cansat`）に変更する場合、以下のファイルをすべて変更する必要があります。
+
+| ファイル | 変更箇所 |
+|---|---|
+| `myapp/` ディレクトリ | ディレクトリ名自体をリネーム |
+| `myapp/Kconfig` | `MYAPP` → `CANSAT`、`"myapp"` → `"cansat"` |
+| `myapp/Make.defs` | `CONFIG_MYAPP` → `CONFIG_CANSAT`、`$(APPDIR)/myapp` → `$(APPDIR)/cansat` |
+| `myapp/Makefile` | `CONFIG_MYAPP_*` → `CONFIG_CANSAT_*`、`MAINSRC` のファイル名 |
+| `myapp/myapp_main.c` | ファイル名と関数名 `myapp_main` → `cansat_main` |
+
+> **注意:** `Make.defs` の `CONFIGURED_APPS += $(APPDIR)/myapp` の行を変更し忘れると、ビルドシステムにアプリが認識されずコマンドとして登録されません。
