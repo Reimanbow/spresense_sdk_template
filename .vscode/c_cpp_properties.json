@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "name": "Spresense",
+      "includePath": [
+        "/sdk/nuttx/include",
+        "/sdk/sdk/include",
+        "/sdk/sdk/apps/include",
+        "/usr/include/newlib",
+        "/usr/lib/gcc/arm-none-eabi/10.3.1/include",
+        "${workspaceFolder}"
+      ],
+      "defines": [
+        "__NuttX__",
+        "NDEBUG",
+        "__ARM_ARCH_7EM__"
+      ],
+      "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+      "compilerArgs": [
+        "-mcpu=cortex-m4",
+        "-mfpu=fpv4-sp-d16",
+        "-mfloat-abi=hard",
+        "-mthumb"
+      ],
+      "cStandard": "c99",
+      "intelliSenseMode": "gcc-arm"
+    }
+  ],
+  "version": 4
+}
